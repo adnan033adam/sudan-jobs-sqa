@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bus Ticket Price Calculator</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    width: 340px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+#result {
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+</style>
+
+<script>
+function calculate() {
+    let age = document.getElementById("age").value;
+    let distance = document.getElementById("distance").value;
+
+    let price = distance * 0.5;
+
+    if (age < 12) price *= 0.5;
+    else if (age >= 60) price *= 0.7;
+
+    document.getElementById("result").innerText = "Price: " + price;
+}
+</script>
+</head>
+
+<body>
+<div class="card">
+    <h2>Bus Ticket Calculator</h2>
+
+    <input id="age" type="number" placeholder="Enter age">
+    <input id="distance" type="number" placeholder="Enter distance (km)">
+
+    <button id="calcBtn" onclick="calculate()">Calculate Price</button>
+
+    <div id="result"></div>
+</div>
+</body>
+</html>
